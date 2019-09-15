@@ -18,7 +18,10 @@ def get_soup_object(url):
 
 def pound_for_pound_rankings(soup):
     """
-    Creates CSV file for Pound-to-pound rankings.
+    Creates CSV file for Pound-for-pound rankings.
+
+    Parameters:
+        - soup object created via BeautifulSoup.
     """
     pfp_rankings = soup.find('div', class_='view-grouping')
     pfp_rankings = pfp_rankings.find('table', class_='views-table views-view-table cols-0')
@@ -43,6 +46,10 @@ def pound_for_pound_rankings(soup):
 def rankings_by_division(soup, division):
     """
     Creates CSV file for rankings by UFC division.
+
+    Parameters:
+        - soup object created via BeautifulSoup.
+        - Division name (string).
     """
     tbody = soup.find('tbody', class_='row-hover')
     fighters = tbody.findChildren('strong')
@@ -98,12 +105,12 @@ def rankings_by_division(soup, division):
 
 
 if __name__ == '__main__':
-    # Pount-for-pound rankings
+    # Pound-for-pound rankings.
     url = "https://www.ufc.com/rankings"
     soup = get_soup_object(url)
     pound_for_pound_rankings(soup)
 
-    # Ranking by division
+    # Ranking by division.
     divisions = ['flyweight', 'bantamweight', 'featherweight', 'lightweight',
                 'welterweight', 'middleweight', 'light-heavyweight', 'heavyweight']
     
