@@ -62,7 +62,10 @@ def rankings_by_division(soup, division):
     list_fights_previous = list()
     list_fights_next = list()
 
-    for fighter, fight_ufc, fight_overall, fight_previous, fight_next in zip(fighters, fights_ufc, fights_overall, fights_previous, fights_next):
+    for fighter, fight_ufc, fight_overall, fight_previous, fight_next in zip(fighters, fights_ufc,
+                                                                             fights_overall, fights_previous,
+                                                                             fights_next):
+        
         counter += 1
         
         list_fighters.append(fighter.text)
